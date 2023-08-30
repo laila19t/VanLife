@@ -16,6 +16,7 @@ export default function Vans(){
         price={van.price}
         type={van.type}
         key={van.id}
+        id={van.id}
         />)
 
     return(

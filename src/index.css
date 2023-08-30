@@ -219,12 +219,32 @@ nav>a{
 }
 
 .var-elements-container>h1{
-color: #161616;
-font-size: 32px;
-font-weight: 700;
-line-height: 34px;
-padding: 35px 35px 0px 35px;
-margin-top: 0;
+  color: #161616;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 34px;
+  padding: 35px 35px 0px 35px;
+  margin-top: 0;
+}
+
+.van-link{
+ text-decoration: none;
+}
+
+/* van details */
+
+.van-dts{
+  display: flex;
+  padding: 25px;
+}
+
+.van-dts>img{
+  width: 40%;
+}
+
+.van-det-inner{
+  padding: 35px;
+  padding-top: 0;
 }
 
 /* footer */
