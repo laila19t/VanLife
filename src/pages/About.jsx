@@ -18,9 +18,6 @@ export default function About(){
                 </div>
             </div>
         </div>
-        <div className="footer">
-            <h3>Ⓒ 2022 #VANLIFE</h3>
-            </div>
         </>
     )
 }

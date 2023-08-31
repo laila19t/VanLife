@@ -5,6 +5,7 @@
 html, body {
   margin: 0;
   padding: 0;
+  
   font-family: 'Inter', sans-serif;
 }
 
@@ -35,6 +36,24 @@ nav>a{
   font-weight: 900;
   text-decoration: none;
   line-height: 40.271px;
+}
+
+.host-nav {
+  display: flex;
+  margin-top: 10px;
+}
+
+.host-nav a {
+  text-decoration: none;
+  color: #4D4D4D;
+  font-weight: 500;
+  padding: 5px 20px;
+}
+
+.host-nav a:hover {
+  color: #161616;
+  text-decoration: underline;
+  font-weight: 600;
 }
 
 /* home */
@@ -239,22 +258,82 @@ nav>a{
 }
 
 .van-dts>img{
-  width: 40%;
+  width: 35%;
 }
 
 .van-det-inner{
-  padding: 35px;
-  padding-top: 0;
+  padding: 100px 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+ align-items: start;
 }
+
+.van-name-det{
+  color: #161616;
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 32px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+.van-price-det{
+  color: #161616;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  margin: 20px 0;
+}
+
+.type{
+  display: inline;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #FFEAD0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.desc{
+  color: #161616;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.rent-btn{
+  border-radius: 5px;
+  background: #FF8C38;
+  border: none;
+  color: #FFF;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 10px;
+  width: 100%;
+  
+}
+
 
 /* footer */
 
+.site-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 .footer{
-  background: #252525;
-  text-align: center;
-  padding: 10px;
-  color: #AAA;
-  font-size: 14px;
+  background-color: #161616;
+  color: #AAAAAA;
+  height: 74px;
+   display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
   font-weight: 500;
 }
 

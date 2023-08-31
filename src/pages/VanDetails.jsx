@@ -15,10 +15,10 @@ export default function VansDetails(){
     <div className="van-dts">
         <img src={van.imageUrl}/>
         <div className="van-det-inner">
-            <h3 className="van-name">{van.name}</h3>
-            <h3 className="van-price">{van.price}<span className="day-span">/day</span></h3>
-            <p className={van.type}>{van.type}</p>
-            <p>{van.description}</p>
+            <h3 className="van-name-det">{van.name}</h3>
+            <h3 className="van-price-det">{van.price}<span className="day-span">/day</span></h3>
+            <p className={`${van.type} type`}>{van.type}</p>
+            <p className="desc">{van.description}</p>
             <button className="rent-btn">Rent this van</button>
         </div>
     </div>
