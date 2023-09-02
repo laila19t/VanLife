@@ -1,19 +1,42 @@
 import {React, useEffect, useState} from "react";
 import { Link, useParams, Outlet, NavLink } from "react-router-dom";
+import { getHostVans } from "../../api";
 
 export default function HostVanDetails(){
     const [VanDetails, setVanDetails]= useState(null)
     const params = useParams()
-    console.log(params)
+    const [loading, setLoading] = useState(false)
+    const [error, setError] = useState(null)
+
+ 
     useEffect(()=>{
-     fetch(`/api/host/vans/${params.id}`)
-     .then(res=>res.json())
-     .then(data=> setVanDetails(data.vans[0]))
+    
+
+
+     async function loadVans() {
+        setLoading(true)
+        try {
+            const data = await getHostVans(params.id)
+            setVanDetails(data[0])
+        } catch (err) {
+            setError(err)
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    loadVans()
     },[])
 
-   
+    if (loading) {
+        return <h1>Loading...</h1>
+    }
+    
+    if (error) {
+        return <h1>There was an error: {error.message}</h1>
+    }
 
-    return VanDetails ?(
+    return VanDetails &&(
         <div>
             <Link  to=".." relative="path" className="back"> &larr; <span>Back to all vans</span></Link>
             <div className="van-dts-host">
@@ -35,7 +58,7 @@ export default function HostVanDetails(){
                 </div>
             </div>
        </div>
-    ) : <h1>Loading...</h1>
+    ) 
 } 
 
 
