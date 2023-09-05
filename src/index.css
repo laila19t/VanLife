@@ -20,6 +20,10 @@ html, body {
   line-height: 22.923px;
 }
 
+.nav-links{
+  display: flex;
+}
+
 nav{
   display: flex;
   justify-content: space-between;
@@ -479,10 +483,151 @@ a.link-styles{
   font-size: 20px;
 }
 
+/* login */
 
+.user-icon{
+  height: 20px;
+  width: 20px;
 
+}
 
+.login-link{
+  display: inline-flex;
+  align-items: center;
+  
+}
 
+.login-container{
+  background: #FFF7ED;
+  width: 50%;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  padding: 35px;
+  text-align: center;
+}
+
+.login-container>h1{
+  color: #161616;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.login-form{
+  display: flex;
+  flex-direction: column;
+  padding:0 90px;
+ font-family: Inter;
+ 
+}
+
+input[type="text"],input[type="password"]{
+  background: #FFF;
+  padding: 10px;
+  border-radius: 6px;
+  border: none
+}
+
+input[type="text"]{
+  border-bottom: 1px solid #D1D5DB;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+input[type="password"]{
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+.inputs-container{
+  display: flex;
+  flex-direction: column;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  border: 1px solid #D1D5DB;
+}
+
+.login-form>button{
+  border-radius: 6px;
+  background: #FF8C38;
+  border: none;
+  padding: 12px;
+  color: #FFF;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.login-container>p{
+  color: #161616;
+  font-size: 16px;
+  font-weight: 500;  
+}
+
+.login-container>p>a{
+  color: #FF8C38;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.login-first {
+  color: red;
+}
+
+/* dashboard */
+
+.dashboard-container{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: 35px;
+}
+
+.welcome{
+  background: #FFEAD0;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+  margin-right: 35px;
+  border-radius: 6px;
+}
+
+.review-score{
+  background: #FFDDB2;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 35px;
+  border-radius: 6px;
+}
+
+.listed-vans{
+  background: #FFEAD0;
+  padding: 20px;
+  border-radius: 6px;
+}
+
+.inner-listed-vans{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.flex-vans{
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.underline{
+  font-weight: 600;
+  text-decoration: underline;
+}
 /* footer */
 
 .site-wrapper {
