@@ -1,5 +1,6 @@
 import React from "react";
 import about from "../assets/van.png"
+import { Link } from "react-router-dom";
 
 export default function About(){
     return (
@@ -14,7 +15,7 @@ export default function About(){
                 <div className="inner-orange">
                     <h3>Your destination is waiting.</h3>
                     <h3 className="second-h3">Your van is ready.</h3>
-                    <button className="explore-vans">Explore our vans</button>
+                    <Link to="/vans" className="explore-vans">Explore our vans</Link>
                 </div>
             </div>
         </div>

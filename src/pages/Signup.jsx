@@ -1,30 +1,35 @@
-import React, { useState,useContext } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { loginUser } from "../api";
-import { userAuthContext } from "../App";
+import React, { useState } from "react";
+import { useLocation, useNavigate,Link } from "react-router-dom";
+import { SignUp } from "../api";
 
-export default function Login(){
+export default function Signup(){
    const navigate = useNavigate()
    const [status, setStatus] = useState("idle")
    const [error, setError] = useState(null)
    const [formData, setFormData] = useState({
     email: "",
-    password: ""
+    password: "",
+    rePassword: ""
    })
    const location = useLocation()
    const from = location.state?.from || '/host'
-   const [logged,isLogged] = useContext(userAuthContext);
 
 
 
     function handleSubmit(e){
        e.preventDefault()
-       console.log('h')
+       if(formData.password!==formData.rePassword){
+        setError("Password do not match")
+        return
+       }
+       if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(formData.email)){
+        setError("Email is not valid")
+        return
+       }
        setStatus("submitting")
-       loginUser(formData.email,formData.password)
+       SignUp(formData.email,formData.password)
        .then(data => {
            localStorage.setItem("loggedin", true)
-           isLogged(true)
            setError(null)
            navigate(from, { replace: true })
        })
@@ -36,6 +41,9 @@ export default function Login(){
        })
     
     } 
+
+
+    
 
     function handleChange(e) {
         console.log(e.target.value)
@@ -50,8 +58,8 @@ export default function Login(){
     return(
         <div className="login-container">
             {location.state ? <h2 className="login-first">{location.state.message}</h2> : null}
-            <h1>Sign in to your account</h1>
-            {error && <h3 className="login-first">{error.message}</h3>}
+            <h1>Create your account</h1>
+            {error && <h3 className="login-first">{error.message ? error.message : error}</h3>}
             <form className="login-form" onSubmit={handleSubmit}>
                 <div className="inputs-container">
                 <input type="text"
@@ -64,13 +72,18 @@ export default function Login(){
                        id="password"
                        name="password"
                        onChange={handleChange}/>
+                <input type="password"
+                       placeholder="Repeat password"
+                       id="re-password"
+                       name="rePassword"
+                       onChange={handleChange}/>
                 </div>
                 <button disabled={status==="submitting" ? true : false}>  {status === "submitting" 
-                        ? "Logging in..." 
-                        : "Log in"
+                        ? "Signing up..." 
+                        : "Sign up"
                     }</button>
             </form>
-            <p>Don't have an account? <Link to='/signup'>Create one now</Link></p>
+            <p>Already have an account? <Link to='/login'>Sign in</Link></p>
         </div>
     )
 }

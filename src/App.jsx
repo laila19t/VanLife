@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{createContext,useState} from 'react'
 import "./server"
 import {BrowserRouter, Route, Routes, Link} from 'react-router-dom'
 import Home from './pages/Home'
@@ -18,10 +18,15 @@ import HostVanPhotos from './pages/hostPages/HostVanPhotos'
 import NotFound from './pages/NotFound'
 import Login from './pages/Login'
 import Authintication from './components/Authintication'
+import Signup from './pages/Signup'
 
+
+export const userAuthContext = createContext()
 
 export default function App() {
+  const [isLogged,setIsLogged] = useState(localStorage.getItem('loggedin'))
   return (
+<userAuthContext.Provider value={[isLogged,setIsLogged]}>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout/>}>
@@ -30,6 +35,7 @@ export default function App() {
           <Route path="vans" element={<Vans/>} />
           <Route path="vans/:id" element={<VansDetails/>} />
           <Route path='login' element={<Login/>}/>
+          <Route path='signup' element={<Signup/>}/>
           <Route element={<Authintication/>}>
             <Route path="host" element={<HostLayout/>}>
               <Route index element={<Dashboard/>} />
@@ -48,6 +54,7 @@ export default function App() {
        </Routes>
     
     </BrowserRouter>
+    </userAuthContext.Provider>
   )
 }
 

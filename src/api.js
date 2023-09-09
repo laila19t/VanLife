@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs, getDoc, doc, query, where } from "firebase/firestore/lite"
+import { getAuth, createUserWithEmailAndPassword,signInWithEmailAndPassword } from "firebase/auth";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDL2LqZ3Vlccf7FJyr7Zl4dhiZmlOnlMAk",
@@ -14,6 +15,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app)
 const vansCollectionRef = collection(db,"vans")
+const auth = getAuth();
 
 export async function getVans() {
     const snapshot = await getDocs(vansCollectionRef)
@@ -43,6 +45,61 @@ export async function getHostVans() {
     return vans
 }
 
+export async function SignUp(email,password) {
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      console.log(user)
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    });
+}
+
+export async function loginUser(email,password) {
+    signInWithEmailAndPassword(auth,email,password)
+    .then((userCredential) => {
+        const user = userCredential.user;
+        console.log(user)
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+}
+
+export async function signUserOut(){
+    auth.signOut()
+    .then(console.log('logged out'))
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      })
+}
+
+
+
+
+
+
+
+// export async function loginUser(creds) {
+//     const res = await fetch("/api/login",
+//         { method: "post", body: JSON.stringify(creds) }
+//     )
+//     const data = await res.json()
+
+//     if (!res.ok) {
+//         throw {
+//             message: data.message,
+//             statusText: res.statusText,
+//             status: res.status
+//         }
+//     }
+
+//     return data
+// }
 
 
 // export async function getVans(id) {
@@ -73,20 +130,3 @@ export async function getHostVans() {
 //     const data = await res.json()
 //     return data.vans
 // }
-
-export async function loginUser(creds) {
-    const res = await fetch("/api/login",
-        { method: "post", body: JSON.stringify(creds) }
-    )
-    const data = await res.json()
-
-    if (!res.ok) {
-        throw {
-            message: data.message,
-            statusText: res.statusText,
-            status: res.status
-        }
-    }
-
-    return data
-}
