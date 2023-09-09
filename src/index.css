@@ -718,7 +718,7 @@ input[type="password"]{
   }
 
   .van-card{
-    max-width: 300px;
+    min-width: 90vw;
   }
 }
 
