@@ -203,7 +203,8 @@ a.link-styles{
   "img img"
   "name price"
   "type type";
-  width: 300px
+  width: 40vw;
+  min-width: 250px;
 }
 
 .van-card>img{
@@ -282,13 +283,17 @@ a.link-styles{
 
 .van-list-filter-buttons{
  margin-left: 35px;
+ display: flex;
+ flex-wrap: wrap;
+ gap: 10px;
 }
 
 .van-elements{
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 35px;
-  padding: 35px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5vw;
+  padding: 40px ;
 
 }
 
@@ -710,6 +715,10 @@ input[type="password"]{
 
   .inner-orange{
     text-align: left;
+  }
+
+  .van-card{
+    max-width: 300px;
   }
 }
 
