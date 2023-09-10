@@ -46,27 +46,30 @@ export default function Dashboard(){
 
     return(
         <div className="dashboard-container">
-            <div>
+            <div className="upper-dashboard">
                 <div className="welcome">
-                    <div>
+                    <div className="welcome-inner">
                         <h2>Welcome!</h2>
                         <h3>your income <span className="underline">last 30 days</span></h3>
                         <h1>$2,260</h1>
                     </div>
-                    <Link to='income'>Details</Link>
+                    <Link to='income' className="details">Details</Link>
                 </div>
                 <div className="review-score">
-                    <div>
+                    <div className="review-score-inner">
                         <h2>Review score</h2>
-                        <p><span><AiFillStar/></span><strong>5.0</strong>/5</p>
+                        <div className="flex-star">
+                        <AiFillStar className="star"/>
+                        <p><strong>5.0</strong><span className="light">/5</span></p>
+                        </div>
                     </div>
-                    <Link to="reviews">Details</Link>
+                    <Link to="reviews" className="details">Details</Link>
                 </div>
             </div>
             <div className="listed-vans">
                 <div className="flex-vans">
                     <h1>Your listed vans</h1>
-                    <Link to="vans">Details</Link>
+                    <Link to="vans" className="details">View all</Link>
                 </div>
                 <div className="inner-listed-vans">{hostVanElements}</div>
             </div>

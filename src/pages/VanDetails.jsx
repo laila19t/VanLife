@@ -36,7 +36,7 @@ export default function VansDetails() {
     }
 
     return (
-        <div>
+        <div className="back-container">
             <Link
                 to={location.state.search ? `..?${location.state.search}` : '..'}
                 relative="path"

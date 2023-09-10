@@ -17,7 +17,8 @@ export default function HostVanDetails(){
         setLoading(true)
         try {
             const data = await getVan(params.id)
-            setVanDetails(data[0])
+            setVanDetails(data)
+            console.log(data)
         } catch (err) {
             setError(err)
         } finally {

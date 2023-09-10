@@ -26,11 +26,11 @@ export default function HostVans(){
 
 
    if (loading) {
-    return <h1>Loading...</h1>
+    return <h1 className="placeholder">Loading...</h1>
 }
 
 if (error) {
-    return <h1>There was an error: {error.message}</h1>
+    return <h1 className="placeholder"> There was an error: {error.message}</h1>
 }
 
    const hostVanElements = hostVans.map((van)=>{
